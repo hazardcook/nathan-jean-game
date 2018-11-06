@@ -69,6 +69,7 @@ project(":android") {
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
         implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+        implementation "com.badlogicgames.ashley:ashley:$ashleyVersion"
         //additional library
         implementation "org.dyn4j:dyn4j:3.2.4"  
     }
@@ -98,6 +99,7 @@ project(":core") {
     dependencies {
         implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
         implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+        implementation "com.badlogicgames.ashley:ashley:$ashleyVersion"
         //additional library
         implementation "org.dyn4j:dyn4j:3.2.4" 
     }
