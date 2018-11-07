@@ -101,7 +101,8 @@ project(":core") {
         implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
         implementation "com.badlogicgames.ashley:ashley:$ashleyVersion"
         //additional library
-        implementation "org.dyn4j:dyn4j:3.2.4" 
+        implementation "org.dyn4j:dyn4j:3.2.4"
+        implementation "com.google.inject:guice:4.1.0"
     }
 }
 
