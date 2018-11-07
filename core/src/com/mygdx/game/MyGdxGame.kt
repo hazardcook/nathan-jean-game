@@ -1,5 +1,6 @@
 package com.mygdx.game
 
+
 import com.badlogic.ashley.core.Entity
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
@@ -16,17 +17,19 @@ import org.dyn4j.dynamics.Body
 import org.dyn4j.geometry.Circle
 import org.dyn4j.geometry.MassType
 import java.util.*
+import com.google.inject.*
+
 
 
 class MyGdxGame : ApplicationAdapter() {
-    private lateinit var batch: SpriteBatch
-    private lateinit var img: Texture
+    internal lateinit var batch: SpriteBatch
+    internal lateinit var img: Texture
 
-    private var engine = PooledEngine()
-    private lateinit var physicsSys: PhysicsSystem
-    private lateinit var bodyRenderSys: BodyRenderSystem
+    internal var engine = PooledEngine()
+    internal lateinit var physicsSys: PhysicsSystem
+    internal lateinit var bodyRenderSys: BodyRenderSystem
 
-
+    internal lateinit var injector : Injector
 
     override fun create() {
         batch = SpriteBatch()
@@ -38,6 +41,10 @@ class MyGdxGame : ApplicationAdapter() {
         engine.addSystem(physicsSys)
         engine.addSystem(bodyRenderSys)
         engine.addEntityListener(physicsSys.family, physicsSys)
+
+//        injector = Guice.createInjector(TestModule(this))
+//        Gdx.input.inputProcessor = injector.getInstance(TestModule::class.java)
+
 
         val rand = Random()
         for(i in 1..100) {
@@ -73,5 +80,10 @@ class MyGdxGame : ApplicationAdapter() {
     override fun dispose() {
         batch.dispose()
         img.dispose()
+    }
+}
+
+class TestModule(private val myGdxGame: MyGdxGame) : Module {
+    override fun configure(binder: Binder?) {
     }
 }
