@@ -44,7 +44,7 @@ class PhysicsSystem : EntityListener,IteratingSystem(Family.all(PositionComp::cl
                     body.addFixture(Circle(radius))
                     body.setMass(MassType.NORMAL)
                     body.transform.translationX = screenX.toDouble()
-                    body.transform.translationY = screenY.toDouble() //wrong value
+                    body.transform.translationY = (Gdx.graphics.width-150)-screenY.toDouble() //wrong value
                     entity.add(BodyComp(body))
                     entity.add(PositionComp(body.transform.translationX.toFloat(), body.transform.translationY.toFloat()))
                     entity.add(BodyRenderComp(Circle(radius)))
